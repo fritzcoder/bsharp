@@ -2,12 +2,14 @@
   "version": "1.0.0-*",
   "buildOptions": {
     "debugType": "portable",
+    "copyToOutput":{"include": ["Views"]},
     "emitEntryPoint": true
   },
   "dependencies": {},
   "frameworks": {
     "netcoreapp1.1": {
       "dependencies": {
+        "SuperSimple.Auth.SuperSimpleAuth":"0.5.0",
         "Microsoft.AspNetCore.Hosting": "1.1.0",
         "Microsoft.AspNetCore.Server.Kestrel": "1.1.0",
         "Microsoft.AspNetCore.Owin": "1.1.0",
