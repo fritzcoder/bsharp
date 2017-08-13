@@ -7,6 +7,7 @@ namespace Bsharp.Api
         public IndexModule()
         {
             Get("/", _ => "Tune it to Bsharp");
+
         }
     }
 }
