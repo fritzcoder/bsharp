@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsharp.Api", "Bsharp.Api.csproj", "{9511B281-41B7-4833-B7AF-54114D727122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsharp.UI", "Bsharp.UI\Bsharp.UI.csproj", "{8F750C31-FB81-4D7C-BB3F-2AB47878D6A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9511B281-41B7-4833-B7AF-54114D727122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9511B281-41B7-4833-B7AF-54114D727122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9511B281-41B7-4833-B7AF-54114D727122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9511B281-41B7-4833-B7AF-54114D727122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F750C31-FB81-4D7C-BB3F-2AB47878D6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F750C31-FB81-4D7C-BB3F-2AB47878D6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F750C31-FB81-4D7C-BB3F-2AB47878D6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F750C31-FB81-4D7C-BB3F-2AB47878D6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
