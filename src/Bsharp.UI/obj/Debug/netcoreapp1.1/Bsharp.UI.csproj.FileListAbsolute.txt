@@ -1,0 +1,10 @@
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/bin/Debug/netcoreapp1.1/Bsharp.UI.deps.json
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/bin/Debug/netcoreapp1.1/Bsharp.UI.runtimeconfig.json
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/bin/Debug/netcoreapp1.1/Bsharp.UI.runtimeconfig.dev.json
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/bin/Debug/netcoreapp1.1/Bsharp.UI.dll
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/bin/Debug/netcoreapp1.1/Bsharp.UI.pdb
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/obj/Debug/netcoreapp1.1/Bsharp.UI.csprojResolveAssemblyReference.cache
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/obj/Debug/netcoreapp1.1/Bsharp.UI.csproj.CoreCompileInputs.cache
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/obj/Debug/netcoreapp1.1/Bsharp.UI.AssemblyInfo.cs
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/obj/Debug/netcoreapp1.1/Bsharp.UI.dll
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.UI/obj/Debug/netcoreapp1.1/Bsharp.UI.pdb
