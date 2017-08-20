@@ -1,10 +1,10 @@
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.deps.json
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.runtimeconfig.json
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.runtimeconfig.dev.json
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.dll
+/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.pdb
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/obj/Debug/netcoreapp1.1/Bsharp.Api.csprojResolveAssemblyReference.cache
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/obj/Debug/netcoreapp1.1/Bsharp.Api.csproj.CoreCompileInputs.cache
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/obj/Debug/netcoreapp1.1/Bsharp.Api.AssemblyInfo.cs
-/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.dll
-/Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/bin/Debug/netcoreapp1.1/Bsharp.Api.pdb
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/obj/Debug/netcoreapp1.1/Bsharp.Api.dll
 /Users/fritz/Dropbox/Projects/bsharp/src/Bsharp.Api/obj/Debug/netcoreapp1.1/Bsharp.Api.pdb

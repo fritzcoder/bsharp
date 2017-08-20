@@ -8,9 +8,8 @@
         public Song Song2       { get; set; }
         public Song Winner      { get; set; }
 
-        public Battle(DateTime time, Song song1, Song song2)
+        public Battle(Song song1, Song song2)
         {
-            Date = time;
             Song1 = song1;
             Song2 = song2;
         }
