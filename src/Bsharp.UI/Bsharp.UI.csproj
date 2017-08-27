@@ -2,11 +2,15 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
+    <PackageReference Include="Nancy.Hosting.Self" Version="2.0.0-clinteastwood" />
   </ItemGroup>
 </Project>
