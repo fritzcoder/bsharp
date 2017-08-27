@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{9511B281-41B7-4833-B7AF-54114D727122}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Bsharp.UI/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="19" Column="6" />
       <File FileName="Startup.cs" Line="13" Column="2" />
       <File FileName="Modules/AuthModule.cs" Line="15" Column="2" />
       <File FileName="Modules/IndexModule.cs" Line="9" Column="48" />
       <File FileName="Models/IBSharpRepository.cs" Line="13" Column="1" />
       <File FileName="Models/Song.cs" Line="6" Column="49" />
       <File FileName="Models/Artist.cs" Line="17" Column="1" />
-      <File FileName="Models/Battle.cs" Line="29" Column="1" />
+      <File FileName="Models/Battle.cs" Line="28" Column="1" />
       <File FileName="Models/User.cs" Line="17" Column="1" />
       <File FileName="Models/Logon.cs" Line="1" Column="1" />
       <File FileName="Models/Profile.cs" Line="1" Column="1" />
