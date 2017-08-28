@@ -6,7 +6,6 @@ namespace Bsharp.Api
     {
         public AuthModule()
         {
-
             Get("/Battle", parameters => {
                 return Response.AsJson("true");
             });

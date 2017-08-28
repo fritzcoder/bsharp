@@ -1,4 +1,4 @@
-namespace Bsharp.Api.Model
+namespace Bsharp.Repository.Domain
 {
     public class Profile
     {

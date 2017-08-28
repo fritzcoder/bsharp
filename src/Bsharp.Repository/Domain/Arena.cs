@@ -1,6 +1,5 @@
-﻿namespace Bsharp.Api.Models
+﻿namespace Bsharp.Repository.Domain
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -8,6 +7,7 @@
     {
         private int _size;
         private string _title;
+
 
         public IEnumerable<Tier> Tiers  { get; }
         public IEnumerable<Song> Songs  { get; }
@@ -22,6 +22,7 @@
             }
 
             Songs = songs;
+            _size = Songs.ToList().Count();
             _title = title;
             Tiers = CreateTiers(songs);
         }
@@ -31,9 +32,8 @@
             var tiers = new List<Tier>();
             int tierCount = 0;
 
-            var tier = Songs.ToList().Count();
 
-            for (int i = 0; i < Songs.ToList().Count(); i++)
+            for (int i = 0; i < _size; i++)
             {
                 tierCount = tierCount / 2;
 

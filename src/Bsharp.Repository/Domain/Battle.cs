@@ -1,4 +1,4 @@
-﻿namespace Bsharp.Api.Models
+﻿namespace Bsharp.Repository.Domain
 {
     using System;
     public class Battle
@@ -22,6 +22,11 @@
             }
 
             return Song2;
+        }
+
+        public void Vote(Song song)
+        {
+            song.VoteCount = song.VoteCount++;
         }
     }
 }
