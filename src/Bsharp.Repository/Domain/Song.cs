@@ -1,6 +1,7 @@
-﻿using System;
-namespace Bsharp.Api.Models
+﻿namespace Bsharp.Repository.Domain
 {
+    using System;
+
     public class Song
     {
         public User User            { get; set; }
@@ -10,7 +11,7 @@ namespace Bsharp.Api.Models
         //InSeconds
         public string Length        { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public int VoteCount        { get; }
+        public int VoteCount        { get; set; }
 
         public Song(User user, Artist artist, string name, 
                     string album, DateTime released)
@@ -19,6 +20,8 @@ namespace Bsharp.Api.Models
             Name = name;
             Album = album;
             ReleaseDate = released;
+            User = user;
+            VoteCount = 0;
         }
     }
 }

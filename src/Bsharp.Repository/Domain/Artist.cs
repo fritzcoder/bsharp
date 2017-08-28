@@ -1,4 +1,4 @@
-﻿namespace Bsharp.Api.Models
+﻿namespace Bsharp.Repository.Domain
 {
 	using System;
 	using System.Collections.Generic;

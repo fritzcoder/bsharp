@@ -30,4 +30,7 @@
   <ItemGroup>
     <Compile Remove="Bootstrap.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bsharp.Repository\Bsharp.Repository.csproj" />
+  </ItemGroup>
 </Project>
