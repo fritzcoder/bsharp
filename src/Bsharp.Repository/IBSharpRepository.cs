@@ -6,22 +6,20 @@
 
     public interface IBSharpRepository
     {
-        void DeleteSong(Song song);
-        void UpdateSong(Song song);
+        void DeleteSong(string id);
         void CreateSong(Guid userId, Song song);
-        Song Song();
+        Song Song(string name, string artistName, string albumName);
         IEnumerable<Song> Songs();
 
         void CreateArena(string title, IEnumerable<Song> songs);
-        void DeleteArena(string title);
         Arena Arena(string title);
         IEnumerable<Arena> Arenas();
 
-        void CreateBattle(DateTime time, Song song1, Song song2);
+        //void CreateBattle(DateTime time, Song song1, Song song2);
         void SubmitForNextBattle(Song song);
 
         void CreateUser(User user);
-        void DeleteUser(User user);
+        void DeleteUser(string email);
         void UpdateUser(User user);
         User User(string email);
     }

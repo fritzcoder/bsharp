@@ -1,19 +1,32 @@
 ﻿<Properties StartupConfiguration="{9511B281-41B7-4833-B7AF-54114D727122}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../SuperSimpleAuth.netcore/src/SuperSimple.Auth.Manager.Repository/MongoRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Bsharp.Repository/MongoRepository.cs">
     <Files>
       <File FileName="Program.cs" Line="21" Column="1" />
       <File FileName="Startup.cs" Line="13" Column="2" />
       <File FileName="Modules/AuthModule.cs" Line="14" Column="2" />
-      <File FileName="../Bsharp.Repository/IBSharpRepository.cs" Line="29" Column="1" />
-      <File FileName="../Bsharp.Repository/MongoRepository.cs" Line="21" Column="13" />
-      <File FileName="../../../SuperSimpleAuth.netcore/src/SuperSimple.Auth.Manager.Repository/MongoRepository.cs" Line="568" Column="77" />
-      <File FileName="../Bsharp.Repository.Test/RepositoryTest.cs" Line="20" Column="1" />
+      <File FileName="../Bsharp.Repository/IBSharpRepository.cs" Line="27" Column="1" />
+      <File FileName="../Bsharp.Repository/MongoRepository.cs" Line="115" Column="13" />
+      <File FileName="../../../SuperSimpleAuth.netcore/src/SuperSimple.Auth.Manager.Repository/MongoRepository.cs" Line="266" Column="12" />
+      <File FileName="../Bsharp.Repository.Test/RepositoryTest.cs" Line="36" Column="9" />
+      <File FileName="../Bsharp.Repository/Domain/Song.cs" Line="34" Column="1" />
+      <File FileName="../Bsharp.Repository/Domain/Artist.cs" Line="21" Column="1" />
+      <File FileName="Modules/IndexModule.cs" Line="9" Column="48" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
           <Node name="Bsharp" expanded="True">
-            <Node name="Bsharp.Repository.Test" selected="True" />
+            <Node name="Bsharp.Repository.Test" expanded="True">
+              <Node name="Bsharp" expanded="True">
+                <Node name="Repository" expanded="True">
+                  <Node name="Test" expanded="True">
+                    <Node name="RepositoryTest" expanded="True">
+                      <Node name="CreateGetUpdateDeleteSong" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
