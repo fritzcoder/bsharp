@@ -11,7 +11,6 @@
         private MongoClient _client;
 		private IMongoDatabase _database;
 
-
 		public MongoRepository(string connection)
         {
             _connection = connection;
@@ -20,6 +19,7 @@
 			_database = _client.GetDatabase("BSharp");
 
 			CreateUserIndexes();
+            //CreateSongIndexes();
         }
         public Arena Arena(string title)
         {
@@ -43,7 +43,9 @@
 
         public void CreateSong(Guid userId, Song song)
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Song>("songs");
+
+			collection.InsertOne(song);
         }
 
         public void CreateUser(User user)
@@ -60,9 +62,10 @@
             throw new NotImplementedException();
         }
 
-        public void DeleteSong(Song song)
+        public void DeleteSong(string id)
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Song>("songs");
+            collection.DeleteOne(x => x.Id == id);
         }
 
         public void DeleteUser(string email)
@@ -71,14 +74,20 @@
 			collection.DeleteOne(x => x.Email == email);
         }
 
-        public void DeleteUser(User user)
+        public Song Song(string name, string artistName, string albumName)
         {
-            throw new NotImplementedException();
-        }
+			var collection = _database.GetCollection<Song>("songs");
+            var song = collection.Find(x => x.Name == name && 
+                                       x.Album == albumName && 
+                                       x.Artist.Name == artistName)
+								 .FirstOrDefault();
 
-        public Song Song()
-        {
-            throw new NotImplementedException();
+			if (song == null)
+			{
+				throw new Exception("Song not found");
+			}
+
+			return song;
         }
 
         public IEnumerable<Song> Songs()
@@ -91,10 +100,16 @@
             throw new NotImplementedException();
         }
 
-        public void UpdateSong(Song song)
-        {
-            throw new NotImplementedException();
-        }
+  //      public void UpdateSong(Song song)
+  //      {
+		//	/var users = _database.GetCollection<Song>("users");
+  //          var filter = Builders<Song>.Filter.Eq(m => m.Id, song.Id);
+		//	var update = Builders<Song>
+		//			.Update
+		//			.Set(x => x.Email, user.Email)
+		//			.Set(x => x.Handle, user.Handle);s
+
+		//}
 
         public void UpdateUser(User user)
         {
@@ -127,7 +142,8 @@
 			var collection =
 				_database.GetCollection<User>("users");
 
-			var options = new CreateIndexOptions() { Unique = true, Sparse = true };
+			var options = new CreateIndexOptions() { Unique = true, 
+                Sparse = true };
 
 			var key = new StringFieldDefinition<User>("Email");
 			
@@ -137,21 +153,23 @@
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}
 
-		/*private void CreateRoleIndexes()
-		{
-			var collection =
-				database.GetCollection<Role>("roles");
+		//private void CreateSongIndexes()
+		//{
+			//var collection =
+			//	_database.GetCollection<Song>("songs");
 
-			var options = new CreateIndexOptions() { Unique = true, Sparse = true };
+			//var options = new CreateIndexOptions() { Unique = true, 
+   //             Sparse = true };
 
-			var key1 = new StringFieldDefinition<Role>("Name");
-			var key2 = new StringFieldDefinition<Role>("DoaminId");
-			var indexDefinition = new IndexKeysDefinitionBuilder<Role>()
-				.Ascending(key1).Ascending(key2);
+			//var key = new StringFieldDefinition<Song>("Id");
+			
+			//var indexDefinition = new IndexKeysDefinitionBuilder<Song>()
+			//	.Ascending(key);
 
-			collection.Indexes.CreateOne(indexDefinition, options);
-		}
+			//collection.Indexes.CreateOne(indexDefinition, options);
+		//}
 
+        /*
 		private void CreateManagerIndexes()
 		{
 			var collection =
