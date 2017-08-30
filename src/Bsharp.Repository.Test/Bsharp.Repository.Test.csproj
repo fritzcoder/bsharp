@@ -14,5 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bsharp.Repository\Bsharp.Repository.csproj" />
+    <ProjectReference Include="..\BSharp.Domain\BSharp.Domain.csproj" />
   </ItemGroup>
 </Project>

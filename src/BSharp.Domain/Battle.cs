@@ -1,4 +1,4 @@
-﻿namespace Bsharp.Repository.Domain
+﻿namespace Bsharp.Domain
 {
     using System;
     public class Battle
@@ -8,6 +8,8 @@
         public Song Song2       { get; set; }
         public Song Winner      { get; set; }
 
+
+        public Battle(){}
         public Battle(Song song1, Song song2)
         {
             Song1 = song1;
@@ -16,12 +18,20 @@
 
         public Song GetWinner()
         {
-            if(Song1.VoteCount > Song2.VoteCount)
+            if(Song1.VoteCount == Song2.VoteCount)
             {
-                return Song1;
+                throw 
+                new Exception("There is a tie battle cannot determine a winner");    
             }
 
-            return Song2;
+            if(Song1.VoteCount > Song2.VoteCount)
+            {
+                Winner = Song1;
+                return Winner;
+            }
+
+            Winner = Song2;
+            return Winner;
         }
 
         public void Vote(Song song)

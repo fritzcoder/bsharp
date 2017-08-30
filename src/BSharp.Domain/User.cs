@@ -1,4 +1,4 @@
-﻿namespace Bsharp.Repository.Domain
+﻿namespace Bsharp.Domain
 {
     using System;
 
@@ -8,9 +8,7 @@
         public string Handle    { get; set; }
         public string Email     { get; set; }
 
-        public User()
-        {
-        }
+        public User(){}
 
         public User(Guid id, string handle, string email)
         {

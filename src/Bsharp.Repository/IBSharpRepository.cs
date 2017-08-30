@@ -2,20 +2,20 @@
 {
 	using System;
 	using System.Collections.Generic;
-    using Bsharp.Repository.Domain;
+    using Bsharp.Domain;
 
     public interface IBSharpRepository
     {
         void DeleteSong(string id);
-        void CreateSong(Guid userId, Song song);
+        void CreateSong(Song song);
         Song Song(string name, string artistName, string albumName);
         IEnumerable<Song> Songs();
 
-        void CreateArena(string title, IEnumerable<Song> songs);
+        void CreateArena(Arena arena);
+        void UpdateArena(Arena arena);
         Arena Arena(string title);
         IEnumerable<Arena> Arenas();
 
-        //void CreateBattle(DateTime time, Song song1, Song song2);
         void SubmitForNextBattle(Song song);
 
         void CreateUser(User user);
