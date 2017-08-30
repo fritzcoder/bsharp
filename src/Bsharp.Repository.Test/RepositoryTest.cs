@@ -1,7 +1,10 @@
 namespace Bsharp.Repository.Test
 {
 	using System;
-    using Bsharp.Repository.Domain;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Bsharp.Repository;
+    using Bsharp.Domain;
     using Xunit;
 
     public class RepositoryTest
@@ -45,7 +48,7 @@ namespace Bsharp.Repository.Test
             
             repo.DeleteSong(song.Id);
             
-            repo.CreateSong(Guid.NewGuid(), song);
+            repo.CreateSong(song);
             song = repo.Song(song.Name,song.Artist.Name,song.Album);
 			Assert.NotNull(song);
 			
@@ -60,6 +63,72 @@ namespace Bsharp.Repository.Test
 			{
 				Assert.True(true, ex.Message);
 			}
+        }
+
+        [Fact]
+        public void CreateGetDeleteArena()
+        {
+            var count = 4;
+            var repo = new MongoRepository("mongodb://localhost");
+            var songs = new List<Song>();
+
+            for (int i = 0; i < 32; i++)
+            {
+                var artist = new Artist(string.Format("Artist{0}", i),
+                                        new string[] { "Test1", "test2" },
+                                        DateTime.Now);
+                songs.Add(
+                    new Song(string.Format("test{0}@bsharp.io",i),
+                             artist,
+                             string.Format("Name{0}", i),
+                             string.Format("Album{0}", i),
+                             i, DateTime.Now));
+            }
+
+            var arena = new Arena("testarena1", songs);
+            var tierCount = arena.Tiers.ToList().Count();
+
+            Assert.Equal(count, tierCount);
+            repo.CreateArena(arena);
+            var currentTier = arena.GetCurrentTier();
+
+            foreach(var battle in currentTier.Battles.ToList())
+            {
+                battle.Song1.VoteCount++;
+            }
+
+            repo.UpdateArena(arena);
+            arena.CreateNextTier();
+			currentTier = arena.GetCurrentTier();
+
+			foreach (var battle in currentTier.Battles.ToList())
+			{
+				battle.Song1.VoteCount++;
+			}
+
+            repo.UpdateArena(arena);
+			arena.CreateNextTier();
+			currentTier = arena.GetCurrentTier();
+
+			foreach (var battle in currentTier.Battles.ToList())
+			{
+				battle.Song1.VoteCount++;
+			}
+
+            repo.UpdateArena(arena);
+			arena.CreateNextTier();
+			currentTier = arena.GetCurrentTier();
+
+			foreach (var battle in currentTier.Battles.ToList())
+			{
+			    battle.Song1.VoteCount++;
+			}
+
+            repo.UpdateArena(arena);
+            arena.CreateNextTier();
+
+			repo.UpdateArena(arena);
+            Assert.NotNull(arena.Winner);
         }
     }
 }

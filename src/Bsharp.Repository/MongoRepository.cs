@@ -2,7 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
-	using Bsharp.Repository.Domain;
+    using Bsharp.Domain;
     using MongoDB.Driver;
 
     public class MongoRepository : IBSharpRepository
@@ -19,29 +19,36 @@
 			_database = _client.GetDatabase("BSharp");
 
 			CreateUserIndexes();
-            //CreateSongIndexes();
+            CreateArenaIndexes();
         }
         public Arena Arena(string title)
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Arena>("arenas");
+            var arena = collection.Find(x => x.Title == title)
+								 .FirstOrDefault();
+
+			if (arena == null)
+			{
+				throw new Exception("Arena not found");
+			}
+
+            return arena;
         }
 
         public IEnumerable<Arena> Arenas()
         {
-            throw new NotImplementedException();
+            var collection = _database.GetCollection<Arena>("arenas");
+            return collection.Find(x => true).ToList();
         }
 
-        public void CreateArena(string title, IEnumerable<Song> songs)
+        public void CreateArena(Arena arena)
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Arena>("arenas");
+
+			collection.InsertOne(arena);
         }
 
-        public void CreateBattle(DateTime time, Song song1, Song song2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateSong(Guid userId, Song song)
+        public void CreateSong(Song song)
         {
 			var collection = _database.GetCollection<Song>("songs");
 
@@ -59,7 +66,8 @@
 
         public void DeleteArena(string title)
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Arena>("arenas");
+            collection.DeleteOne(x => x.Title == title);
         }
 
         public void DeleteSong(string id)
@@ -153,21 +161,53 @@
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}
 
-		//private void CreateSongIndexes()
-		//{
-			//var collection =
-			//	_database.GetCollection<Song>("songs");
+		private void CreateArenaIndexes()
+		{
+			var collection =
+				_database.GetCollection<Arena>("arenas");
 
-			//var options = new CreateIndexOptions() { Unique = true, 
-   //             Sparse = true };
+			var options = new CreateIndexOptions()
+			{
+				Unique = true,
+				Sparse = true
+			};
 
-			//var key = new StringFieldDefinition<Song>("Id");
-			
-			//var indexDefinition = new IndexKeysDefinitionBuilder<Song>()
-			//	.Ascending(key);
+			var key = new StringFieldDefinition<Arena>("Title");
 
-			//collection.Indexes.CreateOne(indexDefinition, options);
-		//}
+			var indexDefinition = new IndexKeysDefinitionBuilder<Arena>()
+				.Ascending(key);
+
+			collection.Indexes.CreateOne(indexDefinition, options);
+		}
+
+        public void UpdateArena(Arena arena)
+        {
+			var a = _database.GetCollection<Arena>("arenas");
+            var filter = Builders<Arena>.Filter.Eq(m => m.Title, arena.Title);
+			var update = Builders<Arena>
+					.Update
+                .Set(x => x.Tiers[arena.CurrentTier], arena.Tiers[arena.CurrentTier])
+                    .Set(x => x.Winner, arena.Winner)
+                    .Set(x => x.CurrentTier, arena.CurrentTier);
+
+            a.UpdateOne(filter, update);
+        }
+
+        //private void CreateSongIndexes()
+        //{
+        //var collection =
+        //	_database.GetCollection<Song>("songs");
+
+        //var options = new CreateIndexOptions() { Unique = true, 
+        //             Sparse = true };
+
+        //var key = new StringFieldDefinition<Song>("Id");
+
+        //var indexDefinition = new IndexKeysDefinitionBuilder<Song>()
+        //	.Ascending(key);
+
+        //collection.Indexes.CreateOne(indexDefinition, options);
+        //}
 
         /*
 		private void CreateManagerIndexes()
@@ -199,5 +239,5 @@
 
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}*/
-	}
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace Bsharp.Repository.Domain
+﻿namespace Bsharp.Domain
 {
     using System;
 
@@ -13,6 +13,8 @@
         public int Length           { get; set; }
         public DateTime ReleaseDate { get; set; }
         public int VoteCount        { get; set; }
+
+        public Song() {}
 
         public Song(string userEmail, Artist artist, string name,
                     string album, int length, DateTime released)

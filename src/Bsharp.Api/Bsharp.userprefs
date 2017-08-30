@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{9511B281-41B7-4833-B7AF-54114D727122}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Bsharp.Repository/MongoRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../BSharp.Domain/Arena.cs">
     <Files>
-      <File FileName="Program.cs" Line="21" Column="1" />
-      <File FileName="Startup.cs" Line="13" Column="2" />
-      <File FileName="Modules/AuthModule.cs" Line="14" Column="2" />
-      <File FileName="../Bsharp.Repository/IBSharpRepository.cs" Line="27" Column="1" />
-      <File FileName="../Bsharp.Repository/MongoRepository.cs" Line="115" Column="13" />
-      <File FileName="../../../SuperSimpleAuth.netcore/src/SuperSimple.Auth.Manager.Repository/MongoRepository.cs" Line="266" Column="12" />
-      <File FileName="../Bsharp.Repository.Test/RepositoryTest.cs" Line="36" Column="9" />
-      <File FileName="../Bsharp.Repository/Domain/Song.cs" Line="34" Column="1" />
-      <File FileName="../Bsharp.Repository/Domain/Artist.cs" Line="21" Column="1" />
+      <File FileName="../Bsharp.Repository/MongoRepository.cs" Line="205" Column="9" />
+      <File FileName="../../../SuperSimpleAuth.netcore/src/SuperSimple.Auth.Manager.Repository/MongoRepository.cs" Line="272" Column="37" />
+      <File FileName="../Bsharp.Repository.Test/RepositoryTest.cs" Line="99" Column="13" />
       <File FileName="Modules/IndexModule.cs" Line="9" Column="48" />
+      <File FileName="../Bsharp.Repository/IBSharpRepository.cs" Line="10" Column="36" />
+      <File FileName="../BSharp.Domain/Arena.cs" Line="85" Column="18" />
+      <File FileName="../BSharp.Domain/Artist.cs" Line="1" Column="17" />
+      <File FileName="../BSharp.Domain/Battle.cs" Line="1" Column="17" />
+      <File FileName="../BSharp.Domain/Song.cs" Line="1" Column="17" />
+      <File FileName="../BSharp.Domain/User.cs" Line="2" Column="2" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -21,7 +21,7 @@
                 <Node name="Repository" expanded="True">
                   <Node name="Test" expanded="True">
                     <Node name="RepositoryTest" expanded="True">
-                      <Node name="CreateGetUpdateDeleteSong" selected="True" />
+                      <Node name="CreateGetDeleteArena" selected="True" />
                     </Node>
                   </Node>
                 </Node>
