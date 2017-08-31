@@ -7,19 +7,23 @@
     public class Arena
     {
         private int _size;
+        public Guid Id                  { get; set; }
         public string Title             { get; set; }
         public List<Tier> Tiers         { get; set; }
         public int CurrentTier          { get; set; }
         public Song Winner              { get; set; }
+        public DateTime CreatedAt       { get; set; }
 
+        public Arena() { }
         public Arena(string title, IEnumerable<Song> songs) 
         {
+            Guid Id = Guid.NewGuid();
             if (songs.Count() % 2 != 0)
             {
                 throw new ArgumentException("Sorry man," 
                 + "only an even number of songs can be used.");
             }
-
+            CreatedAt = DateTime.Now;
             CurrentTier = 0;
             _size = songs.ToList().Count();
             Title = title;
