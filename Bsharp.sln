@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsharp.Api", "Bsharp.Api\Bsharp.Api.csproj", "{B2BB47EE-CF52-4461-977D-2E6BAD44519B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bsharp.Api", "src\Bsharp.Api\Bsharp.Api.csproj", "{DB5E2507-F31F-4D9E-B119-42959979743D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +38,9 @@ Global
 		{B33EB874-0C6A-4DBC-A9D2-D6673580401B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B33EB874-0C6A-4DBC-A9D2-D6673580401B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B33EB874-0C6A-4DBC-A9D2-D6673580401B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2BB47EE-CF52-4461-977D-2E6BAD44519B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2BB47EE-CF52-4461-977D-2E6BAD44519B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2BB47EE-CF52-4461-977D-2E6BAD44519B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2BB47EE-CF52-4461-977D-2E6BAD44519B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5E2507-F31F-4D9E-B119-42959979743D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5E2507-F31F-4D9E-B119-42959979743D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5E2507-F31F-4D9E-B119-42959979743D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5E2507-F31F-4D9E-B119-42959979743D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

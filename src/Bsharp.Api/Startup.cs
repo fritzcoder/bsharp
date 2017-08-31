@@ -32,7 +32,7 @@
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStatusCodePages();
             app.UseMvc();
         }
     }

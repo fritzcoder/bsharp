@@ -88,7 +88,8 @@
 
         public IEnumerable<Song> Songs()
         {
-            throw new NotImplementedException();
+			var collection = _database.GetCollection<Song>("songs");
+			return collection.Find(x => true).ToList();
         }
 
         public void SubmitForNextBattle(Song song)
