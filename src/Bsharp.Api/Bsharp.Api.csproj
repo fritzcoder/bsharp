@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Bsharp.Repository\Bsharp.Repository.csproj" />
-    <ProjectReference Include="..\src\BSharp.Domain\BSharp.Domain.csproj" />
+    <ProjectReference Include="..\BSharp.Domain\BSharp.Domain.csproj" />
+    <ProjectReference Include="..\Bsharp.Repository\Bsharp.Repository.csproj" />
   </ItemGroup>
 </Project>
