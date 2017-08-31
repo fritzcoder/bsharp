@@ -11,7 +11,7 @@
         private MongoClient _client;
 		private IMongoDatabase _database;
 
-		public MongoRepository(string connection)
+        public MongoRepository(string connection = "mongodb://localhost")
         {
             _connection = connection;
 			_client = new MongoClient(_connection);
@@ -26,12 +26,6 @@
 			var collection = _database.GetCollection<Arena>("arenas");
             var arena = collection.Find(x => x.Title == title)
 								 .FirstOrDefault();
-
-			if (arena == null)
-			{
-				throw new Exception("Arena not found");
-			}
-
             return arena;
         }
 
@@ -89,12 +83,6 @@
                                        x.Album == albumName && 
                                        x.Artist.Name == artistName)
 								 .FirstOrDefault();
-
-			if (song == null)
-			{
-				throw new Exception("Song not found");
-			}
-
 			return song;
         }
 

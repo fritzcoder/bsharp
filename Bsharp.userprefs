@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{B2BB47EE-CF52-4461-977D-2E6BAD44519B}|Default">
+  <MonoDevelop.Ide.ItemProperties.Bsharp.UI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bsharp.Api/Properties/launchSettings.json">
+    <Files>
+      <File FileName="Bsharp.Api/Program.cs" Line="15" Column="39" />
+      <File FileName="Bsharp.Api/Startup.cs" Line="18" Column="61" />
+      <File FileName="README.md" Line="1" Column="1" />
+      <File FileName="Bsharp.Api/Controllers/ArenasController.cs" Line="28" Column="9" />
+      <File FileName="Bsharp.Api/Models/Error.cs" Line="9" Column="43" />
+      <File FileName="src/Bsharp.Repository/IBSharpRepository.cs" Line="17" Column="35" />
+      <File FileName="src/BSharp.Domain/Arena.cs" Line="39" Column="14" />
+      <File FileName="src/Bsharp.Repository.Test/RepositoryTest.cs" Line="1" Column="1" />
+      <File FileName="src/BSharp.Domain/Song.cs" Line="1" Column="1" />
+      <File FileName="src/BSharp.Domain/Artist.cs" Line="1" Column="1" />
+      <File FileName="src/BSharp.Domain/Battle.cs" Line="1" Column="1" />
+      <File FileName="src/BSharp.Domain/User.cs" Line="1" Column="1" />
+      <File FileName="src/Bsharp.Repository/MongoRepository.cs" Line="89" Column="41" />
+      <File FileName="Bsharp.Api/appsettings.json" Line="1" Column="1" />
+      <File FileName="Bsharp.Api/Properties/launchSettings.json" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Bsharp.Api PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
