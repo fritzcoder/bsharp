@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using BSharp.Domain;
 
     public class Arena
     {
@@ -41,7 +42,7 @@
 
                 if (i == 0)
                 {
-                    tiers.Add(CreateTier(songs, i));
+                    tiers.Add(CreateTier(songs, i, true));
                 }
                 else
                 {
@@ -57,10 +58,12 @@
             return tiers;
 		}
 
-        private Tier CreateTier(IEnumerable<Song> songs, int level)
+        private Tier CreateTier(IEnumerable<Song> songs, int level, 
+                                bool active = false)
         {
             var stack = new Stack<Song>(songs);
             var tier = new Tier(level);
+            tier.Active = active;
 
             while(stack.Any())
             {
@@ -89,12 +92,12 @@
                 }
             }
 
+            Tiers[CurrentTier].Active = false;
             CurrentTier++;
 
             if ((CurrentTier) < Tiers.Count())
             {
-                Tiers[CurrentTier] = CreateTier(winners, CurrentTier);
-
+                Tiers[CurrentTier] = CreateTier(winners, CurrentTier, true);
             }
             else
             {
@@ -106,28 +109,6 @@
         public Tier GetCurrentTier()
         {
             return Tiers[CurrentTier];
-        }
-    }
-
-    public class Tier
-    {
-        public int Level            { get; set; }
-        public List<Battle> Battles { get; set; }
-
-
-        public Tier() {}
-        public Tier(int level)
-        {
-            Level = level;
-            Battles = new List<Battle>();
-        }
-
-        public IEnumerable<Song> GetWinners()
-        {
-            foreach(var battle in Battles)
-            {
-                yield return battle.Winner;
-            }
         }
     }
 }

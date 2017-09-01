@@ -10,6 +10,7 @@
         private string _connection;
         private MongoClient _client;
 		private IMongoDatabase _database;
+        private object _lock;
 
         public MongoRepository(string connection = "mongodb://localhost")
         {
@@ -21,6 +22,7 @@
 			CreateUserIndexes();
             CreateArenaIndexes();
         }
+
         public Arena Arena(string title)
         {
 			var collection = _database.GetCollection<Arena>("arenas");
@@ -175,11 +177,16 @@
             var filter = Builders<Arena>.Filter.Eq(m => m.Title, arena.Title);
 			var update = Builders<Arena>
 					.Update
-                .Set(x => x.Tiers[arena.CurrentTier], arena.Tiers[arena.CurrentTier])
+                    .Set(x => x.Tiers[arena.CurrentTier], arena.Tiers[arena.CurrentTier])
                     .Set(x => x.Winner, arena.Winner)
                     .Set(x => x.CurrentTier, arena.CurrentTier);
 
             a.UpdateOne(filter, update);
+        }
+
+        public void SaveSongFile(string name, byte[] file)
+        {
+            throw new NotImplementedException();
         }
 
         //private void CreateSongIndexes()

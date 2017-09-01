@@ -9,6 +9,7 @@
         void CreateSong(Song song);
         Song Song(string name, string artistName, string albumName);
         IEnumerable<Song> Songs();
+        void SaveSongFile(string name, byte[] file);
 
         void CreateArena(Arena arena);
         void UpdateArena(Arena arena);

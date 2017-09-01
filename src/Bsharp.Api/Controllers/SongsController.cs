@@ -16,12 +16,16 @@
             _repo = repo;
         }
 
-		[HttpPost]
-		public void Post([FromBody]IFormFile file, [FromBody]Song value)
-		{
-
-		}
-
+        [HttpPost]
+        public void Post(IFormFile file, Song song)
+        {
+            using (var f = System.IO.File.Create(song.Id + ".mp3"))
+            {
+                file.CopyTo(f);
+				_repo.CreateSong(song);
+            }
+        }
+		
         [HttpGet]
         public IEnumerable<Song> Get()
         {
@@ -29,8 +33,8 @@
         }
 
 		[HttpGet]
-		public Song Get(string name, string artistName, 
-                                     string albumName)
+		public Song Get([FromQuery]string name, [FromQuery]string artistName, 
+                                     [FromQuery]string albumName)
 		{
             return _repo.Song(name,artistName,albumName);
 		}
