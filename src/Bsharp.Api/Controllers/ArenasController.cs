@@ -39,33 +39,15 @@
         }
 
         [HttpPost]
-        public void Post(string arenaName, int tierNumber, string songId, 
-                         bool vote)
+        public void Post(string email, string arenaName, int tierNumber, 
+                         string songId)
         {
             var arena = _repo.Arena(arenaName);
 
             if(arena.CurrentTier == tierNumber)
             {
-                var tier = arena.GetCurrentTier();
-
-                var song1 = tier.Battles
-                                .Select(s => s.Song1)
-                                .FirstOrDefault(x => x.Id == songId);
-                
-				var song2 = tier.Battles
-                                .Select(s => s.Song2)
-                                .FirstOrDefault(x => x.Id == songId);
-                
-                if(song1 != null)
-                {
-                    song1.VoteCount++;
-                }
-                else
-                {
-                    song2.VoteCount++;    
-                }
-
-                _repo.UpdateArena(arena);
+                var vote = new Vote(arena.Id, email, tierNumber, songId);
+                _repo.Vote(vote);
             }
         }
     }
