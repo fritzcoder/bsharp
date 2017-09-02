@@ -11,12 +11,14 @@
 
         public BsharpClient(string url)
         {
-            _url = url;
+			_client = new HttpClient();
+			//_client.BaseAddress = new Uri(uri);
+			//_uri = uri;
         }
 
-        public User CreateUser(User user)
-        {
+        //public User CreateUser(User user)
+        //{
             
-        }
+        //}
     }
 }

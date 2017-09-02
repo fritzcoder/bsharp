@@ -22,5 +22,6 @@
         void DeleteUser(string email);
         void UpdateUser(User user);
         User User(string email);
+        IEnumerable<User> Users();
     }
 }

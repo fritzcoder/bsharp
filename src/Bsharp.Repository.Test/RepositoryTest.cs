@@ -6,6 +6,7 @@ namespace Bsharp.Repository.Test
     using Bsharp.Repository;
     using Bsharp.Domain;
     using Xunit;
+    using MongoDB.Driver;
 
     public class RepositoryTest
     {
@@ -129,6 +130,28 @@ namespace Bsharp.Repository.Test
 
 			repo.UpdateArena(arena);
             Assert.NotNull(arena.Winner);
+        }
+
+        [Fact]
+        public void TestVote()
+        {
+            var repo = new MongoRepository("mongodb://localhost");
+            var arenaId = Guid.NewGuid();
+            var battleId = Guid.NewGuid();
+            var vote = new Vote(arenaId, battleId, "test@bsharp.io", 
+                               0,"testsong");
+            repo.Vote(vote);
+            vote.Email = "test1@bsharp.io";
+            repo.Vote(vote);
+            try
+            {
+                repo.Vote(vote);
+                Assert.True(false);
+            }
+            catch(MongoWriteException ex)
+            {
+                Assert.True(true,ex.Message);
+            }
         }
     }
 }

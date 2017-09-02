@@ -21,6 +21,7 @@
 
 			CreateUserIndexes();
             CreateArenaIndexes();
+            CreateVoteIndexes();
         }
 
         public Arena Arena(string title)
@@ -60,6 +61,12 @@
 			collection.InsertOne(user);
         }
 
+		public IEnumerable<User> Users()
+		{
+			var collection = _database.GetCollection<User>("Users");
+			return collection.Find(x => true).ToList();
+		}
+
         public void DeleteArena(string title)
         {
 			var collection = _database.GetCollection<Arena>("arenas");
@@ -93,22 +100,6 @@
 			var collection = _database.GetCollection<Song>("songs");
 			return collection.Find(x => true).ToList();
         }
-
-        public void SubmitForNextBattle(Song song)
-        {
-            throw new NotImplementedException();
-        }
-
-  //      public void UpdateSong(Song song)
-  //      {
-		//	/var users = _database.GetCollection<Song>("users");
-  //          var filter = Builders<Song>.Filter.Eq(m => m.Id, song.Id);
-		//	var update = Builders<Song>
-		//			.Update
-		//			.Set(x => x.Email, user.Email)
-		//			.Set(x => x.Handle, user.Handle);s
-
-		//}
 
         public void UpdateUser(User user)
         {
@@ -196,7 +187,7 @@
 		private void CreateVoteIndexes()
 		{
 			var collection =
-				_database.GetCollection<Arena>("votes");
+				_database.GetCollection<Vote>("votes");
 
 			var options = new CreateIndexOptions()
 			{
@@ -204,12 +195,18 @@
 				Sparse = true
 			};
 
-			var key = new StringFieldDefinition<Arena>("");
+			var key1 = new StringFieldDefinition<Vote>("BattleId");
+            var key2 = new StringFieldDefinition<Vote>("Email");
 
-			var indexDefinition = new IndexKeysDefinitionBuilder<Arena>()
-				.Ascending(key);
+			var indexDefinition = new IndexKeysDefinitionBuilder<Vote>()
+                .Ascending(key1).Ascending(key2);
 
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}
+
+        public void SubmitForNextBattle(Song song)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
