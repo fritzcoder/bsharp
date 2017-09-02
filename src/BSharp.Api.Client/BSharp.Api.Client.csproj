@@ -4,4 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BSharp.Domain\BSharp.Domain.csproj" />
+  </ItemGroup>
 </Project>

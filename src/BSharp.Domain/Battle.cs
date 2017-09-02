@@ -3,15 +3,17 @@
     using System;
     public class Battle
     {
+        public Guid Id          { get; set; }
         public DateTime Date    { get; set; }
         public Song Song1       { get; set; }
         public Song Song2       { get; set; }
         public Song Winner      { get; set; }
 
-
         public Battle(){}
-        public Battle(Song song1, Song song2)
+
+        public Battle(Guid id, Song song1, Song song2)
         {
+            Id = id;
             Song1 = song1;
             Song2 = song2;
         }
@@ -32,11 +34,6 @@
 
             Winner = Song2;
             return Winner;
-        }
-
-        public void Vote(Song song)
-        {
-            song.VoteCount = song.VoteCount++;
         }
     }
 }

@@ -9,12 +9,12 @@
         void CreateSong(Song song);
         Song Song(string name, string artistName, string albumName);
         IEnumerable<Song> Songs();
-        void SaveSongFile(string name, byte[] file);
 
         void CreateArena(Arena arena);
         void UpdateArena(Arena arena);
         Arena Arena(string title);
         IEnumerable<Arena> Arenas();
+        void Vote(Vote vote);
 
         void SubmitForNextBattle(Song song);
 
@@ -22,5 +22,6 @@
         void DeleteUser(string email);
         void UpdateUser(User user);
         User User(string email);
+        IEnumerable<User> Users();
     }
 }

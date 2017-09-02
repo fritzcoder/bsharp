@@ -18,7 +18,6 @@
         public Arena() { }
         public Arena(string title, IEnumerable<Song> songs) 
         {
-            Guid Id = Guid.NewGuid();
             if (songs.Count() % 2 != 0)
             {
                 throw new ArgumentException("Sorry man," 
@@ -67,7 +66,8 @@
 
             while(stack.Any())
             {
-                tier.Battles.Add(new Battle(stack.Pop(), stack.Pop()));
+                tier.Battles.Add(new Battle(Guid.NewGuid(),stack.Pop(), 
+                                            stack.Pop()));
             }
 
             return tier;

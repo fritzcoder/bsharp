@@ -21,6 +21,7 @@
 
 			CreateUserIndexes();
             CreateArenaIndexes();
+            CreateVoteIndexes();
         }
 
         public Arena Arena(string title)
@@ -60,6 +61,12 @@
 			collection.InsertOne(user);
         }
 
+		public IEnumerable<User> Users()
+		{
+			var collection = _database.GetCollection<User>("Users");
+			return collection.Find(x => true).ToList();
+		}
+
         public void DeleteArena(string title)
         {
 			var collection = _database.GetCollection<Arena>("arenas");
@@ -94,22 +101,6 @@
 			return collection.Find(x => true).ToList();
         }
 
-        public void SubmitForNextBattle(Song song)
-        {
-            throw new NotImplementedException();
-        }
-
-  //      public void UpdateSong(Song song)
-  //      {
-		//	/var users = _database.GetCollection<Song>("users");
-  //          var filter = Builders<Song>.Filter.Eq(m => m.Id, song.Id);
-		//	var update = Builders<Song>
-		//			.Update
-		//			.Set(x => x.Email, user.Email)
-		//			.Set(x => x.Handle, user.Handle);s
-
-		//}
-
         public void UpdateUser(User user)
         {
 			var users = _database.GetCollection<User>("users");
@@ -134,6 +125,28 @@
             }
 			
 			return user;
+        }
+
+		public void UpdateArena(Arena arena)
+		{
+			var a = _database.GetCollection<Arena>("arenas");
+			var filter = Builders<Arena>.Filter.Eq(m => m.Title, arena.Title);
+			var update = Builders<Arena>
+					.Update
+					.Set(x => x.Tiers[arena.CurrentTier], arena.Tiers[arena.CurrentTier])
+					.Set(x => x.Winner, arena.Winner)
+					.Set(x => x.CurrentTier, arena.CurrentTier);
+
+			a.UpdateOne(filter, update);
+		}
+
+        public void Vote(Vote vote)
+        {
+			var collection = _database.GetCollection<Vote>("votes");
+
+			vote.Id = Guid.NewGuid();
+
+			collection.InsertOne(vote);
         }
 
 		private void CreateUserIndexes()
@@ -171,69 +184,29 @@
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}
 
-        public void UpdateArena(Arena arena)
-        {
-			var a = _database.GetCollection<Arena>("arenas");
-            var filter = Builders<Arena>.Filter.Eq(m => m.Title, arena.Title);
-			var update = Builders<Arena>
-					.Update
-                    .Set(x => x.Tiers[arena.CurrentTier], arena.Tiers[arena.CurrentTier])
-                    .Set(x => x.Winner, arena.Winner)
-                    .Set(x => x.CurrentTier, arena.CurrentTier);
-
-            a.UpdateOne(filter, update);
-        }
-
-        public void SaveSongFile(string name, byte[] file)
-        {
-            throw new NotImplementedException();
-        }
-
-        //private void CreateSongIndexes()
-        //{
-        //var collection =
-        //	_database.GetCollection<Song>("songs");
-
-        //var options = new CreateIndexOptions() { Unique = true, 
-        //             Sparse = true };
-
-        //var key = new StringFieldDefinition<Song>("Id");
-
-        //var indexDefinition = new IndexKeysDefinitionBuilder<Song>()
-        //	.Ascending(key);
-
-        //collection.Indexes.CreateOne(indexDefinition, options);
-        //}
-
-        /*
-		private void CreateManagerIndexes()
+		private void CreateVoteIndexes()
 		{
 			var collection =
-				database.GetCollection<Manager>("managers");
+				_database.GetCollection<Vote>("votes");
 
-			var options = new CreateIndexOptions() { Unique = true, Sparse = true };
+			var options = new CreateIndexOptions()
+			{
+				Unique = true,
+				Sparse = true
+			};
 
-			var key1 = new StringFieldDefinition<Manager>("UserName");
+			var key1 = new StringFieldDefinition<Vote>("BattleId");
+            var key2 = new StringFieldDefinition<Vote>("Email");
 
-			var indexDefinition = new IndexKeysDefinitionBuilder<Manager>()
-				.Ascending(key1);
+			var indexDefinition = new IndexKeysDefinitionBuilder<Vote>()
+                .Ascending(key1).Ascending(key2);
 
 			collection.Indexes.CreateOne(indexDefinition, options);
 		}
 
-		private void CreateAdminIndexes()
-		{
-			var collection =
-				database.GetCollection<Administrator>("administrators");
-
-			var options = new CreateIndexOptions() { Unique = true, Sparse = true };
-
-			var key1 = new StringFieldDefinition<Administrator>("DomainId");
-			var key2 = new StringFieldDefinition<Administrator>("ManagerId");
-			var indexDefinition = new IndexKeysDefinitionBuilder<Administrator>()
-				.Ascending(key1).Ascending(key2);
-
-			collection.Indexes.CreateOne(indexDefinition, options);
-		}*/
+        public void SubmitForNextBattle(Song song)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
