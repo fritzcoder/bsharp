@@ -17,13 +17,15 @@
         }
 
         [HttpPost]
-        public void Post(IFormFile file, Song song)
+        public IActionResult Post(IFormFile file, Song song)
         {
             using (var f = System.IO.File.Create(song.Id + ".mp3"))
             {
                 file.CopyTo(f);
 				_repo.CreateSong(song);
             }
+
+            return CreatedAtRoute("GetById", new { id = song.Id }, song);
         }
 		
         [HttpGet]
@@ -36,7 +38,13 @@
 		public Song Get([FromQuery]string name, [FromQuery]string artistName, 
                                      [FromQuery]string albumName)
 		{
-            return _repo.Song(name,artistName,albumName);
+            return _repo.Song(name, artistName,albumName);
+		}
+
+        [HttpGet("{id}", Name="GetById")]
+		public Song Get(string id)
+		{
+			return _repo.Song(id);
 		}
     }
 }

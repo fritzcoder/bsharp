@@ -42,22 +42,21 @@ namespace Bsharp.Repository.Test
         public void CreateGetDeleteSong()
         {
 			var repo = new MongoRepository("mongodb://localhost");
-            var artist = new Artist("test Artist", 
-                                    new [] {"thisguy", "thatguy"},DateTime.Now);
+            var artist = "test Artist";
 			var song = new Song("test@bsharp.io", artist,"testsong","testalbum",
                                 60,DateTime.Now);
             
             repo.DeleteSong(song.Id);
             
             repo.CreateSong(song);
-            song = repo.Song(song.Name,song.Artist.Name,song.Album);
+            song = repo.Song(song.Name,song.Artist,song.Album);
 			Assert.NotNull(song);
 			
             repo.DeleteSong(song.Id);
 
 			try
 			{
-				song = repo.Song(song.Name, song.Artist.Name, song.Album);
+				song = repo.Song(song.Name, song.Artist, song.Album);
 				Assert.True(false);
 			}
 			catch (Exception ex)
@@ -65,6 +64,34 @@ namespace Bsharp.Repository.Test
 				Assert.True(true, ex.Message);
 			}
         }
+
+		[Fact]
+		public void CreateGetDeleteSongById()
+		{
+			var repo = new MongoRepository("mongodb://localhost");
+            var artist = "test Artist";
+
+			var song = new Song("test@bsharp.io", artist, "testsong", "testalbum",
+								60, DateTime.Now);
+
+			repo.DeleteSong(song.Id);
+
+			repo.CreateSong(song);
+            song = repo.Song(song.Name, song.Artist, song.Album);
+			Assert.NotNull(song);
+
+			repo.DeleteSong(song.Id);
+
+			try
+			{
+				song = repo.Song(song.Id);
+				Assert.True(false);
+			}
+			catch (Exception ex)
+			{
+				Assert.True(true, ex.Message);
+			}
+		}
 
         [Fact]
         public void CreateGetDeleteArena()
@@ -75,9 +102,7 @@ namespace Bsharp.Repository.Test
 
             for (int i = 0; i < 32; i++)
             {
-                var artist = new Artist(string.Format("Artist{0}", i),
-                                        new string[] { "Test1", "test2" },
-                                        DateTime.Now);
+                var artist = string.Format("Artist{0}", i);
                 songs.Add(
                     new Song(string.Format("test{0}@bsharp.io",i),
                              artist,

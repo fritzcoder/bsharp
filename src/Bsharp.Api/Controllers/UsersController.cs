@@ -23,9 +23,16 @@
 		}
 
 		[HttpGet("{email}", Name = "GetUser")]
-        public User Get(string email)
+        public IActionResult Get(string email)
 		{
-			return _repo.User(email);
+            try
+            {
+                return new ObjectResult(_repo.User(email));
+            }
+            catch(Exception)
+            {
+                return new ObjectResult("Could not find user");
+            }
 		}
 
         [HttpPost]
