@@ -38,7 +38,8 @@
             return arena;
         }
 
-        [HttpPost]
+		[HttpPost]
+		[Route("Vote")]
         public void Post(string email, string arenaName, int tierNumber,
                          string songId)
         {

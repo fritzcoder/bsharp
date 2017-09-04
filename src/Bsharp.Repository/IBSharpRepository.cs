@@ -7,6 +7,7 @@
     {
         void DeleteSong(string id);
         void CreateSong(Song song);
+        Song Song(string id);
         Song Song(string name, string artistName, string albumName);
         IEnumerable<Song> Songs();
 

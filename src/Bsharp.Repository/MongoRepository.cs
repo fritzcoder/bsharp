@@ -45,12 +45,7 @@
 			collection.InsertOne(arena);
         }
 
-        public void CreateSong(Song song)
-        {
-			var collection = _database.GetCollection<Song>("songs");
 
-			collection.InsertOne(song);
-        }
 
         public void CreateUser(User user)
         {
@@ -63,7 +58,7 @@
 
 		public IEnumerable<User> Users()
 		{
-			var collection = _database.GetCollection<User>("Users");
+			var collection = _database.GetCollection<User>("users");
 			return collection.Find(x => true).ToList();
 		}
 
@@ -84,13 +79,27 @@
 			var collection = _database.GetCollection<User>("users");
 			collection.DeleteOne(x => x.Email == email);
         }
+		public void CreateSong(Song song)
+		{
+			var collection = _database.GetCollection<Song>("songs");
+
+			collection.InsertOne(song);
+		}
+
+		public Song Song(string id)
+		{
+			var collection = _database.GetCollection<Song>("songs");
+            var song = collection.Find(x => x.Id == id)
+								 .FirstOrDefault();
+			return song;
+		}
 
         public Song Song(string name, string artistName, string albumName)
         {
 			var collection = _database.GetCollection<Song>("songs");
             var song = collection.Find(x => x.Name == name && 
                                        x.Album == albumName && 
-                                       x.Artist.Name == artistName)
+                                       x.Artist == artistName)
 								 .FirstOrDefault();
 			return song;
         }
