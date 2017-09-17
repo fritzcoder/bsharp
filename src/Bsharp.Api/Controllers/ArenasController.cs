@@ -40,9 +40,12 @@
 
 		[HttpPost]
 		[Route("Vote")]
-        public void Post(string email, string arenaName, int tierNumber,
+        public void Post(string arenaName, int tierNumber,
                          string songId)
         {
+            var token = Request.Headers["Authorization"];
+            var email = token;
+
             var arena = _repo.Arena(arenaName);
 
             var battle = arena.Tiers[tierNumber]

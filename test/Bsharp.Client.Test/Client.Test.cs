@@ -15,7 +15,7 @@ namespace Bsharp.Client.Test
         [Fact]
         public async void CreateUserTestAsync()
         {
-            var client = new BsharpClient(URL);
+            var client = new BsharpClient();
             var user = await client.CreateUser("test@bsharp.io", "testhandle",
                                                "testpassword");
             
@@ -26,7 +26,7 @@ namespace Bsharp.Client.Test
 		[Fact]
 		public async void GetUserAsync()
 		{
-			var client = new BsharpClient(URL);
+			var client = new BsharpClient();
 			var user = await client.User("test@bsharp.io");
 
 			Assert.Equal("test@bsharp.io", user.Email);
@@ -35,7 +35,7 @@ namespace Bsharp.Client.Test
 		[Fact]
 		public async void GetArenaAsync()
         {
-			var client = new BsharpClient(URL);
+			var client = new BsharpClient();
 			var arena = await client.Arena("testarena1");
 
             Assert.Equal("testarena1", arena.Title);   
@@ -44,7 +44,7 @@ namespace Bsharp.Client.Test
 		[Fact]
 		public async void CreateSongAsync()
 		{
-			var client = new BsharpClient(URL);
+			var client = new BsharpClient();
             var s = new Song("test@bsharp.io", "testartist", "testsong",
                              "testalbum", 300, DateTime.Now);
             
@@ -52,6 +52,19 @@ namespace Bsharp.Client.Test
             var song = await client.CreateSong(bytes, s);
 
             Assert.Equal("testsong", song.Name);
+		}
+
+		[Fact]
+		public async void VoteSongAsync()
+		{
+			var client = new BsharpClient();
+			var s = new Song("test@bsharp.io", "testartist", "testsong",
+							 "testalbum", 300, DateTime.Now);
+
+			var bytes = File.ReadAllBytes("test.mp3");
+			var song = await client.CreateSong(bytes, s);
+
+			Assert.Equal("testsong", song.Name);
 		}
     }
 }

@@ -19,6 +19,8 @@
         [HttpPost]
         public IActionResult Post(IFormFile file, Song song)
         {
+            var token = Request.Headers["Authorization"];
+
             using (var f = System.IO.File.Create(song.Id + ".mp3"))
             {
                 file.CopyTo(f);

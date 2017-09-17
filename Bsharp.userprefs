@@ -1,31 +1,21 @@
 ﻿<Properties StartupConfiguration="{DB5E2507-F31F-4D9E-B119-42959979743D}|Default">
   <MonoDevelop.Ide.ItemProperties.Bsharp.UI PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/Bsharp.Repository/MongoRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="test/Bsharp.Client.Test/Client.Test.cs">
     <Files>
-      <File FileName="src/BSharp.Api.Client/BsharpClient.cs" Line="109" Column="1" />
-      <File FileName="src/Bsharp.Api/Controllers/AuthController.cs" Line="22" Column="19" />
-      <File FileName="src/Bsharp.Api/Controllers/SongsController.cs" Line="42" Column="4" />
-      <File FileName="src/Bsharp.Api/Controllers/ArenasController.cs" Line="38" Column="26" />
-      <File FileName="src/Bsharp.UI/bower.json" Line="1" Column="1" />
-      <File FileName="src/Bsharp.UI/Views/_ViewImports.cshtml" Line="1" Column="1" />
-      <File FileName="src/Bsharp.UI/Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="src/Bsharp.Repository/MongoRepository.cs" Line="83" Column="4" />
-      <File FileName="src/BSharp.Domain/Arena.cs" Line="31" Column="10" />
-      <File FileName="src/BSharp.Domain/Tier.cs" Line="14" Column="24" />
-      <File FileName="src/BSharp.Domain/Song.cs" Line="34" Column="6" />
-      <File FileName="src/Bsharp.Api/Program.cs" Line="11" Column="1" />
-      <File FileName="src/BSharp.Domain/Artist.cs" Line="22" Column="1" />
-      <File FileName="src/BSharp.Domain/Vote.cs" Line="31" Column="1" />
-      <File FileName="src/Bsharp.Repository/IBSharpRepository.cs" Line="18" Column="30" />
-      <File FileName="../SuperSimpleAuth/src/SuperSimple.Auth.SuperSimpleCore/SuperSimpleAuth.cs" Line="377" Column="25" />
-      <File FileName="src/BSharp.Domain/User.cs" Line="23" Column="1" />
-      <File FileName="src/Bsharp.Api/Controllers/UsersController.cs" Line="49" Column="79" />
-      <File FileName="test/Bsharp.Client.Test/Client.Test.cs" Line="53" Column="1" />
-      <File FileName="test/Bsharp.Repository.Test/RepositoryTest.cs" Line="12" Column="6" />
-      <File FileName="src/BSharp.Domain/Battle.cs" Line="20" Column="1" />
-      <File FileName="src/Bsharp.Api/appsettings.json" Line="1" Column="1" />
-      <File FileName="src/Bsharp.Api/appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="src/Bsharp.Api/Startup.cs" Line="40" Column="1" />
+      <File FileName="src/BSharp.Api.Client/BsharpClient.cs" Line="30" Column="10" />
+      <File FileName="src/Bsharp.Api/Controllers/AuthController.cs" Line="34" Column="14" />
+      <File FileName="src/Bsharp.Api/Controllers/ArenasController.cs" Line="52" Column="26" />
+      <File FileName="src/Bsharp.Api/Controllers/SongsController.cs" Line="37" Column="10" />
+      <File FileName="src/Bsharp.Api/Controllers/UsersController.cs" Line="37" Column="1" />
+      <File FileName="src/BSharp.Api.Client/IBsharpAuth.cs" Line="2" Column="1" />
+      <File FileName="src/BSharp.Api.Client/IBsharpUser.cs" Line="14" Column="2" />
+      <File FileName="src/BSharp.Api.Client/IBsharpSong.cs" Line="5" Column="25" />
+      <File FileName="src/BSharp.Api.Client/IBsharpArena.cs" Line="12" Column="1" />
+      <File FileName="src/BSharp.Api.Client/BsharpAuth.cs" Line="27" Column="1" />
+      <File FileName="src/BSharp.Api.Client/BsharpUser.cs" Line="54" Column="53" />
+      <File FileName="src/BSharp.Api.Client/BsharpSong.cs" Line="17" Column="10" />
+      <File FileName="src/BSharp.Api.Client/BsharpArena.cs" Line="18" Column="42" />
+      <File FileName="test/Bsharp.Client.Test/Client.Test.cs" Line="13" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
